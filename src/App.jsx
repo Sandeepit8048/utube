@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Nabar from './Component/Nabar.jsx'
 import Music from './Component/Music.jsx'
-import Learing from './Component/Learing.jsx'
+import Learning from './Component/Learning.jsx'
 function App() {
 
 
@@ -12,7 +12,7 @@ function App() {
   <>
     <Nabar />
     <Music />
-    <Learing />
+    <Learning />
   </>
   )
 }
