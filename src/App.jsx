@@ -5,14 +5,18 @@ import './App.css'
 import Nabar from './Component/Nabar.jsx'
 import Music from './Component/Music.jsx'
 import Learning from './Component/Learning.jsx'
+import Time from './Component/Time.jsx'
+import Expend from './Component/Expend.jsx'
 function App() {
 
 
   return (
   <>
+    <Expend />
     <Nabar />
     <Music />
     <Learning />
+    <Time />
   </>
   )
 }
