@@ -1,32 +1,36 @@
-import React, { useRef, useState  } from 'react'
+import React, { useRef, useState } from 'react'
 
 function Time() {
-     const[Time, setTime]=useState(0);
-    let useintervel = useRef(null);
+  const [time , setTime] = useState(1);// t-2
+  const [updata, setUpdata ] = useState(2) //3
+   let countdt=0;
+  function Start(){
      
-       function start(){
-        if (useintervel.current) return;
+            setTime(time*updata);//2*3=6
+            setUpdata(e=>e+1)
+            
 
-          useintervel.current =  setInterval(()=>{
-               setTime((e)=> e+1)
-          },1000)
-       
-    }
+     
+  }
 
-    function stop(){
-        
-           clearInterval(useintervel.current)
-             useintervel.current=null;
- 
-    }
+  function Stop(){
+       if(time == 0 ){
+        // setTime((e)=>e-1);
+        return ;
+
+       }else if(time !=0){
+        setTime((e) =>e-1);
+       }
+  }
+
+
 
   return (
+
     <div>
-        <h1 className="text-2xl font-bold mb-4">Time Zone</h1>
-        <h2 id='time' className="text-xl font-semibold mb-4">{Time}</h2>
-         <button  onClick={start} >Start</button>
-            <button onClick={stop} >Stop</button>
-            <button >Reset</button>
+    <p>{time}</p>
+    <button onClick={Start}>Start</button>
+    <button onClick={Stop}>Stop</button>
     </div>
   )
 }

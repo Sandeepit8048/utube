@@ -13,7 +13,7 @@ function Expend() {
         setIitem([...iteam, text]);
         console.log(iteam);
        
-        // setIitem("");
+        setIitem("");
         setText(" ");
 
     }
