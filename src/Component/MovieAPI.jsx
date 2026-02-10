@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Img from '../assets/got.avif'
+import Cart from './Cart'
+import './Cartbox.css'
 function MovieAPI() {
     const [data , setData] = useState([0]);
-     
+    const  chagebgcol = useRef(null);
+    const changecolor = useRef(null);
+    
+    
   useEffect(()=>{
     async function Moviefetch() {
          const dataapi = await fetch("https://my-json-server.typicode.com/horizon-code-academy/fake-movies-api/movies");
@@ -12,29 +17,40 @@ function MovieAPI() {
 
         }
         Moviefetch();
-    }, [])
-    console.log(data);
+        
+            
+    
+    
+    
+}, [])
+
+function colourChange(){
+     chagebgcol.current.style.backgroundColor='red';
+
+}
+
+function colorchange1(){
+   changecolor.current.style.backgroundColor='yellow';
+}
+
+ 
+
+
+    // console.log(data);
 
   return (
     < >
         {
-            data.map((item)=>{
+            data.map((props,key)=>{
                 
-                return (
-               
-                    <div>
-                         <img src={item.Poster} alt="" />
-                         <p>Time: {item.Runtime}</p>
-                         <p>Movie-Name: {item.Title}</p>
-                          <p>Year: {item.Year}</p>
-                          {/* <img src={Img} alt="" /> */}
-                          
-
-                    </div>
-                )
-                
-})
+                return ( 
+                 <Cart key={key} props={props}/>
+                   
+                )})
         }
+
+        <button  onClick={colourChange}  ref={changecolor}>First Btn</button>
+        <button ref={chagebgcol} onClick={colorchange1} >Second btn</button>
     </>
   )
 }

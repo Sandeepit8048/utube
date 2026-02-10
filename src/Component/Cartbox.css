@@ -1,0 +1,12 @@
+.img-box{
+   border-radius: 1rem;
+   margin: auto;
+
+}
+.img-box::shadow{
+    border-radius: 1rem;
+}
+.img-box:hover{
+   border-radius: 2rem;
+   
+}
